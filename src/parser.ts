@@ -17,7 +17,6 @@ function collectAlias(lang: string) {
 
 function codeBlockHightLight(str: string, lang: string, attrs: string) {
 	lang = collectAlias(lang);
-	if (lang === 'tsx') console.log(str);
 	const l = lang && hljs.getLanguage(lang);
 	if (!l) return str;
 	else return hljs.highlight(lang, str, true).value;

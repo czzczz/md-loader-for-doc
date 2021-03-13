@@ -47,8 +47,6 @@ const load: loader.Loader = function (source) {
         ${renderVueTemplate(code)}
     `;
 
-	if (this.context.endsWith('notes')) console.log(code, ret);
-
 	return `module.exports = ${ret}`;
 };
 
