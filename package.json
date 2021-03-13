@@ -1,0 +1,36 @@
+{
+	"name": "md-loader-for-doc",
+	"version": "1.0.0",
+	"description": "load markdown to vue component with demo block and slot etc.",
+	"main": "index.js",
+	"repository": "https://github.com/czzczz/md-loader-for-doc.git",
+	"author": "chanzrz <chanzrz_zbf@foxmail.com>",
+	"scripts": {
+		"dev": "tsc --watch",
+		"build": "tsc",
+		"prettier": "prettier --write ./**/*.{md,ts,json} --config ./.prettierrc"
+	},
+	"license": "MIT",
+	"private": false,
+	"dependencies": {
+		"cheerio": "^1.0.0-rc.5",
+		"highlight.js": "^10.6.0",
+		"markdown-it": "^12.0.4"
+	},
+	"devDependencies": {
+		"@types/markdown-it": "^12.0.1",
+		"@types/webpack": "^4.41.26",
+		"lint-staged": "^10.5.4",
+		"prettier": "^2.2.1",
+		"typescript": "^4.2.3"
+	},
+	"gitHooks": {
+		"pre-commit": "lint-staged"
+	},
+	"lint-staged": {
+		"*.{ts}": [
+			"yarn prettier",
+			"git add"
+		]
+	}
+}
