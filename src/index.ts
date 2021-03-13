@@ -32,16 +32,16 @@ const load: loader.Loader = function (source) {
 				'/' +
 				decodeURIComponent(path)
 			}"`;
+		})
+		.replace(/&lt;slot[\s\S]*?&gt;&lt;\/slot&gt;/gi, v => {
+			// slot支持
+			return v
+				.replace(/_&/g, ' ')
+				.replace(/&quot;/g, '"')
+				.replace(/&lt;/g, '<')
+				.replace(/&gt;/g, '>')
+				.replace(/&amp;/g, '&');
 		});
-	// .replace(/&lt;slot[\s\S]*?&gt;&lt;\/slot&gt;/gi, v => {
-	// 	// slot支持
-	// 	return v
-	// 		.replace(/_&/g, ' ')
-	// 		.replace(/&quot;/g, '"')
-	// 		.replace(/&lt;/g, '<')
-	// 		.replace(/&gt;/g, '>')
-	// 		.replace(/&amp;/g, '&');
-	// });
 
 	const ret: string = `
         ${renderVueTemplate(code)}
